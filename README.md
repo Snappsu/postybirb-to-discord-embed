@@ -41,7 +41,7 @@ You can find the examples of the data here: <https://github.com/mvdicarlo/postyb
 
 Once the server gets that, it needs to assemble and send the data into a way that Discord won't complain. 
 
-See: [Discord Webhook Specification](https://docs.discord.com/developers/resources/webhook#execute-webhook)
+See: [Discord Webhook Specification](https://docs.discord.com/developers/resources/webhook#execute-webhook) and [Discord Embed Object Specification](https://docs.discord.com/developers/resources/message#embed-object)
 
 Now, the server's I ~~post~~ forward the posts to often have different rules and stuff. For example, some servers don't allow for markdown links, and other others may not allow for links to specfic sites. As such, I make different versions of posts to comply with said demands.
 
