@@ -35,19 +35,27 @@ Here comes the complicated part.
 
 I used a Cloudflare worker for this.
 
-Once Postybirb has posted the media to the designated sites (sans e621) it will send a POST request to the custom server. You can find the examples of the data here: <https://github.com/mvdicarlo/postybirb/blob/main/docs/CUSTOM_WEBSITE.md> (thank you leaftail!)
+Once Postybirb has posted the media to the designated sites (sans e621) it will send a POST request to the custom server. 
 
-Once the server gets that, it needs to assemble and send the data into a way that Discord won't complain. See: [Discord Webhook Specification](https://docs.discord.com/developers/resources/webhook#execute-webhook)
+You can find the examples of the data here: <https://github.com/mvdicarlo/postybirb/blob/main/docs/CUSTOM_WEBSITE.md> (thank you leaftail!)
+
+Once the server gets that, it needs to assemble and send the data into a way that Discord won't complain. 
+
+See: [Discord Webhook Specification](https://docs.discord.com/developers/resources/webhook#execute-webhook)
 
 Now, the server's I ~~post~~ forward the posts to often have different rules and stuff. For example, some servers don't allow for markdown links, and other others may not allow for links to specfic sites. As such, I make different versions of posts to comply with said demands.
 
 ## A place to host the media
 
-Using Cloudflare Workers and their R2 object storage, I made myself a little bucket to (temporarily (in theory)) host the files that PostyBirb sends. The media in the bucket can be accessed via a URL. **NOTE:** Discord ~~has the reading comprehension of a toddler~~ is not quite able to read the MIME data of a file. With GIFs, for example, the URL will need the .gif at the end of the URL for Discord to recognize it properly and animate it.
+Using Cloudflare Workers and their R2 object storage, I made myself a little bucket to (temporarily (in theory)) host the files that PostyBirb sends. The media in the bucket can be accessed via a URL. 
+
+**NOTE:** Discord ~~has the reading comprehension of a toddler~~ is not quite able to read the MIME data of a file. With GIFs, for example, the URL will need the .gif at the end of the URL for Discord to recognize it properly and animate it.
 
 ## A Discord webhook for receiving posts
 
-This is the easy part. So easy, in fact, that I don't want to write it out. Please refer to this: <https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks>
+This is the easy part. So easy, in fact, that I don't want to write it out. 
+
+Please refer to this: <https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks>
 
 Personally, I have a 'staging' channel that gets all my different versions of a post, and then I forward them from there.
 
